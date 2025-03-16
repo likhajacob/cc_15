@@ -24,15 +24,16 @@ function addRiskItem(riskName, riskLevel, department) {
 
     riskCard.innerHTML = riskContent;
 
-// Append the new risk card to the risk dashboard
+
     document.getElementById('riskDashboard').appendChild(riskCard);
+ //risk card to the risk dashboard
 }
 
-// Event listener to handle form submission
+// Event listener to handle form
 document.getElementById('riskForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from refreshing the page
 
-// Get the values from the form
+    
     const riskName = document.getElementById('riskName').value;
     const riskLevel = document.getElementById('riskLevel').value;
     const department = document.getElementById('department').value;

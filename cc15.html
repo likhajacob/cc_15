@@ -21,3 +21,56 @@
     main {
         padding: 20px;
     }
+    #riskDashboardHTML { 
+        border: 2px dashed #061def; /* Navy Blue */
+        padding: 20px;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px; 
+    }
+    .riskCard {
+    border: 2px solid #000000; /* Black */
+    padding: 15px;
+    margin: 10px;
+    background-color: #8d6b36; /* Brown */
+    width: 300px;
+    align-items: center;
+    position: relative;
+    }
+</style>
+
+  <body>
+      <header>
+          <h1>Risk Management Dashboard</h1>
+      </header>
+      <main>
+          <section>
+              <h2>Risk Items</h2>
+              <div id="riskDashboard">
+                  <!-- Risk Items -->
+              </div>
+              <form id="riskForm">
+                <label for="risk">Risk Name:</label>
+                <input type="text" id="risk" placeholder="Enter risk item" required>
+                <label for="riskLevel">Risk Level:</label>
+                <select id="riskLevel" name="riskLevel" required>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                </select>
+                <label for="riskDepartment">Department:</label>
+                <input type="text" id="riskDepartment" name="riskDepartment" placeholder="Enter department" required>
+                <button type="submit">Add Risk</button>
+            </form>
+            <button id="increaseRiskButton">Increase Risk Levels</button>
+          </section>
+      </main>
+      <footer>
+          <p>ISM3232 Coding Challenge 15</p>
+      </footer>
+      <script src="cc_15.js"></script>
+  </body>
+  
+  </html>
