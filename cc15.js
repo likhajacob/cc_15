@@ -1,23 +1,22 @@
 // Task 1 - Creating the Base Structure
 const riskDashboard = document.getElementById("riskDashboard");
 console.log("Risk Dashboard Loaded");
-//Task 3 - Removing Risk Items
-
+// Task 3 - Removing Risk Items
 const removeButton = document.createElement("button");
 removeButton.textContent = "Resolve";
 removeButton.classList.add("remove-button");
 
-removeButton.addEventListener("click", function (event) {
-    event.stopPropagation();
-    riskContainer.removeChild(riskCard);
+removeButton.addEventListener("click", function () {
+    riskDashboard.removeChild(riskCard);
 });
 
 // Task 2: Adding Risk Items Dynamically
 function addRiskItem(riskName, riskLevel, department) {
-// Create the new risk card
+    // Create the new risk card
     const riskCard = document.createElement('div');
     riskCard.classList.add('riskCard');
-// Setting the background color based on risk level
+
+    // Set background color based on risk level
     if (riskLevel === 'High') {
         riskCard.classList.add('highRisk');
     } else if (riskLevel === 'Medium') {
@@ -26,40 +25,40 @@ function addRiskItem(riskName, riskLevel, department) {
         riskCard.classList.add('lowRisk');
     }
 
-// content for the risk card
-    const riskContent = `
+// Content for the risk card
+    riskCard.innerHTML = `
         <h3>${riskName}</h3>
         <p>Risk Level: ${riskLevel}</p>
         <p>Department: ${department}</p>
     `;
 
-    riskCard.innerHTML = riskContent;
+// Append button to risk card
+    riskCard.appendChild(removeButton);
 
-
-    document.getElementById('riskDashboard').appendChild(riskCard);
- //risk card to the risk dashboard
+ // Append risk card to the risk dashboard
+    riskDashboard.appendChild(riskCard);
 }
 
-// Event listener to handle form
+// Event listener to handle form submission
 document.getElementById('riskForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from refreshing the page
+    event.preventDefault(); // Prevent form refresh
 
-
-    const riskName = document.getElementById('riskName').value;
+    const riskName = document.getElementById('risk').value;  // Fixed ID
     const riskLevel = document.getElementById('riskLevel').value;
-    const department = document.getElementById('department').value;
+    const department = document.getElementById('riskDepartment').value; // Fixed ID
 
-// Call addRiskItem function with the form values
+    // Call addRiskItem function with form values
     addRiskItem(riskName, riskLevel, department);
 
-// Clear the form fields
-    document.getElementById('riskName').value = '';
-    document.getElementById('department').value = '';
+    // Clear the form fields
+    document.getElementById('risk').value = '';
+    document.getElementById('riskDepartment').value = '';
 });
 
 // Test example data
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+
 
 
 
