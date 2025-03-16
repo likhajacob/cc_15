@@ -1,6 +1,17 @@
 // Task 1 - Creating the Base Structure
 const riskDashboard = document.getElementById("riskDashboard");
 console.log("Risk Dashboard Loaded");
+//Task 3 - Removing Risk Items
+
+const removeButton = document.createElement("button");
+removeButton.textContent = "Resolve";
+removeButton.classList.add("remove-button");
+
+removeButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    riskContainer.removeChild(riskCard);
+});
+
 // Task 2: Adding Risk Items Dynamically
 function addRiskItem(riskName, riskLevel, department) {
 // Create the new risk card
@@ -33,7 +44,7 @@ function addRiskItem(riskName, riskLevel, department) {
 document.getElementById('riskForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form from refreshing the page
 
-    
+
     const riskName = document.getElementById('riskName').value;
     const riskLevel = document.getElementById('riskLevel').value;
     const department = document.getElementById('department').value;
@@ -49,3 +60,8 @@ document.getElementById('riskForm').addEventListener('submit', function(event) {
 // Test example data
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+
+
+
+
+
