@@ -55,16 +55,27 @@ document.getElementById('riskForm').addEventListener('submit', function(event) {
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 //Task 5 - Implementing bulk updates
-document.addEventListener("DOMContentLoaded", () => {
-    // Create the "Increase Risk Levels" button
-    const increaseButton = document.createElement("button");
-    increaseButton.textContent = "Increase Risk Levels";
-    increaseButton.addEventListener("click", increaseRiskLevels);
+function increaseRiskLevels() {
+    const riskCards = document.querySelectorAll('.riskCard');
+    
+    riskCards.forEach(function(card) {
+        const riskLevelElement = card.querySelector('.riskLevel');
+        const currentRiskLevel = riskLevelElement.innerText;
 
-    // Append the button to the dashboard
-    const riskDashboard = document.getElementById("riskDashboard");
-    riskDashboard.appendChild(increaseButton);
-});
+        let newRiskLevel = currentRiskLevel;
+        if (currentRiskLevel === 'Low') {
+            newRiskLevel = 'Medium';
+        } else if (currentRiskLevel === 'Medium') {
+            newRiskLevel = 'High';
+        }
+
+        // Update the risk level
+        riskLevelElement.innerText = newRiskLevel;
+
+        // Update the background color based on the new risk level
+        setRiskLevelStyles(card, newRiskLevel);
+    });
+}
 // Task 6 - Handling event propagation
 riskDashboard.addEventListener("click", function(event) {
     console.log("Dashboard clicked!"); 
