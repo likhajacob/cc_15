@@ -58,6 +58,18 @@ document.getElementById('riskForm').addEventListener('submit', function(event) {
 // Test example data
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+//Task 4 - Categorizing Risks By Level
+
+//Using an if, else if, else statement to set the background color to the desired color based on risk level.
+        if (riskLevel === "High") {
+            riskCard.style.backgroundColor = "red"
+        } else if (riskLevel === "Medium") {
+            riskCard.style.backgroundColor = "yellow"
+        } else {
+            riskCard.style.backgroundColor = "green"
+        }
+
+
 
 
 
