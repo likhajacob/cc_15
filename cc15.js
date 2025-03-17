@@ -38,7 +38,7 @@ function addRiskItem(riskName, riskLevel, department) {
 }
 //Event listener to handle form submission
 document.getElementById('riskForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form refresh
+    event.preventDefault();
 
     const riskName = document.getElementById('risk').value;
     const riskLevel = document.getElementById('riskLevel').value;
@@ -51,10 +51,10 @@ document.getElementById('riskForm').addEventListener('submit', function(event) {
     document.getElementById('risk').value = '';
     document.getElementById('riskDepartment').value = '';
 });
-//Test example data
+//Test data
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
-//Task 5 - Implementing Bulk Updates
+//Task 5 - Implementing bulk updates
 document.addEventListener("DOMContentLoaded", () => {
     // Create the "Increase Risk Levels" button
     const increaseButton = document.createElement("button");
@@ -64,5 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Append the button to the dashboard
     const riskDashboard = document.getElementById("riskDashboard");
     riskDashboard.appendChild(increaseButton);
+});
+// Task 6 - Handling event propagation
+riskDashboard.addEventListener("click", function(event) {
+    console.log("Dashboard clicked!"); 
 });
 
